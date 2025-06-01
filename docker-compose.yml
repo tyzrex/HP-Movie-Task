@@ -1,0 +1,11 @@
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: cinevault:latest
+    container_name: cinevault
+    ports:
+      - "0.0.0.0:3000:3000"
+    env_file:
+      - .env

@@ -98,7 +98,13 @@ export function MovieDetails({ movie, similarMovies }: MovieDetailsProps) {
 
                 {/* Description */}
                 <p className="text-zinc-300 leading-relaxed max-w-3xl">
-                  {movie.description_full || movie.summary}
+                  {movie.summary ? (
+                    movie.summary
+                  ) : (
+                    <span className="line-clamp-6">
+                      {movie.description_full}
+                    </span>
+                  )}
                 </p>
 
                 {/* Action Buttons */}
