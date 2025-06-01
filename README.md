@@ -229,5 +229,5 @@ const movie = await fetchMovieDetails(movieId);
 
 ## 🔗 Live Demo
 
-[View Live Demo](https://your-deployment-url.vercel.app)
+[View Live Demo](https://cinevault.sulavbaral.com.np)
 
