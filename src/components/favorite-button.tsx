@@ -66,7 +66,7 @@ export function FavoriteButton({ movieId, size = "sm" }: FavoriteButtonProps) {
       disabled={isLoading}
       className={cn(
         sizeClasses[size],
-        "bg-black/30 hover:bg-black/50 text-white border border-gray-700/20"
+        "bg-black/30 hover:bg-black/50 text-white border border-zinc-700/20"
       )}
     >
       <Heart

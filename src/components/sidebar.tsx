@@ -85,7 +85,7 @@ export default function Sidebar() {
                 className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                   isActive
                     ? "bg-red-600 font-bold text-white"
-                    : "text-gray-300 hover:text-white hover:bg-zinc-700"
+                    : "text-zinc-300 hover:text-white hover:bg-zinc-700"
                 }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -97,7 +97,7 @@ export default function Sidebar() {
 
         {/* Favorites Section */}
         <div className="mt-8">
-          <h3 className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-4">
+          <h3 className="text-zinc-400 text-xs font-medium uppercase tracking-wider mb-4">
             Recent Favorites
           </h3>
           {loading ? (
@@ -123,7 +123,7 @@ export default function Sidebar() {
                     <h4 className="text-sm text-white line-clamp-2">
                       {movie.title}
                     </h4>
-                    <p className="text-xs text-gray-400 mt-1">
+                    <p className="text-xs text-zinc-400 mt-1">
                       {movie.year} • {movie.rating} ★
                     </p>
                   </div>
@@ -132,7 +132,7 @@ export default function Sidebar() {
             </div>
           ) : (
             <div className="space-y-1 px-3 py-2 bg-zinc-700/50 rounded-lg">
-              <p className="text-gray-500 text-xs">
+              <p className="text-zinc-500 text-xs">
                 Your recently favorited movies will appear here
               </p>
             </div>

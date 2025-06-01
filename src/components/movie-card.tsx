@@ -18,7 +18,7 @@ export function MovieCard({ movie, priority = false }: MovieCardProps) {
 
   return (
     <div className="group relative movie-card">
-      <div className="relative aspect-[2/3] rounded-lg overflow-hidden bg-gray-800">
+      <div className="relative aspect-[2/3] rounded-lg overflow-hidden bg-zinc-800">
         <Link href={`/movie/${movie.id}`}>
           <Image
             src={
@@ -63,7 +63,7 @@ export function MovieCard({ movie, priority = false }: MovieCardProps) {
             {movie.title}
           </h3>
         </Link>
-        <div className="flex items-center text-xs text-gray-400">
+        <div className="flex items-center text-xs text-zinc-400">
           {movie.year}
           {movie.genres && movie.genres[0] && (
             <>

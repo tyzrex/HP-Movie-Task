@@ -18,7 +18,7 @@ export function MobileNav() {
 
   return (
     <>
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0f0f0f] border-t border-gray-800 z-50">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0f0f0f] border-t border-zinc-800 z-50">
         <div className="flex justify-around items-center">
           {navigationItems.map((item) => {
             const isActive =
@@ -30,7 +30,7 @@ export function MobileNav() {
                 key={item.label}
                 href={item.href}
                 className={`flex flex-col items-center py-3 px-2 ${
-                  isActive ? "text-red-600" : "text-gray-400"
+                  isActive ? "text-red-600" : "text-zinc-400"
                 }`}
               >
                 <item.icon className="w-5 h-5" />
@@ -42,7 +42,7 @@ export function MobileNav() {
             variant="ghost"
             size="sm"
             onClick={() => setIsOpen(true)}
-            className="flex flex-col items-center py-3 px-2 text-gray-400"
+            className="flex flex-col items-center py-3 px-2 text-zinc-400"
           >
             <Menu className="w-5 h-5" />
             <span className="text-xs mt-1">Menu</span>
@@ -54,7 +54,7 @@ export function MobileNav() {
       {isOpen && (
         <div className="md:hidden fixed inset-0 bg-black/50 z-50">
           <div className={`w-64 h-full bg-[#0f0f0f] sidebar-slide-in`}>
-            <div className="flex justify-between items-center p-4 border-b border-gray-800">
+            <div className="flex justify-between items-center p-4 border-b border-zinc-800">
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">C</span>
@@ -68,7 +68,7 @@ export function MobileNav() {
                 size="icon"
                 onClick={() => setIsOpen(false)}
               >
-                <X className="w-5 h-5 text-gray-400" />
+                <X className="w-5 h-5 text-zinc-400" />
               </Button>
             </div>
 
@@ -86,7 +86,7 @@ export function MobileNav() {
                       className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-sm transition-colors ${
                         isActive
                           ? "bg-red-600 text-white"
-                          : "text-gray-400 hover:text-white hover:bg-gray-800"
+                          : "text-zinc-400 hover:text-white hover:bg-zinc-800"
                       }`}
                     >
                       <item.icon className="w-5 h-5" />

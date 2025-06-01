@@ -59,7 +59,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
         size="sm"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="border-gray-700 text-gray-300 hover:bg-gray-800"
+        className="border-zinc-700 text-zinc-300 hover:bg-zinc-800"
       >
         <ChevronLeft className="w-4 h-4 mr-1" />
         Prev
@@ -75,7 +75,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
           className={`min-w-[40px] ${
             page === currentPage
               ? "bg-red-600 hover:bg-red-700"
-              : "border-gray-700 text-gray-300 hover:bg-gray-800"
+              : "border-zinc-700 text-zinc-300 hover:bg-zinc-800"
           }`}
         >
           {page}
@@ -87,7 +87,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
         size="sm"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="border-gray-700 text-gray-300 hover:bg-gray-800"
+        className="border-zinc-700 text-zinc-300 hover:bg-zinc-800"
       >
         Next
         <ChevronRight className="w-4 h-4 ml-1" />

@@ -36,7 +36,7 @@ export async function MovieSearchResults({
         <h2 className="text-xl font-semibold text-white mb-4">
           No movies found
         </h2>
-        <p className="text-gray-400">Try adjusting your search criteria</p>
+        <p className="text-zinc-400">Try adjusting your search criteria</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ export async function MovieSearchResults({
   return (
     <div className="space-y-6">
       <div className="mb-4">
-        <p className="text-gray-400">
+        <p className="text-zinc-400">
           Showing {movies.length} of {data?.movie_count || 0} movies
         </p>
       </div>

@@ -12,7 +12,7 @@ interface HeroSectionProps {
 export function HeroSection({ movie }: HeroSectionProps) {
   if (!movie) {
     return (
-      <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] bg-gray-800 animate-pulse" />
+      <div className="h-[50vh] sm:h-[60vh] md:h-[70vh] bg-zinc-800 animate-pulse" />
     );
   }
 
@@ -43,20 +43,20 @@ export function HeroSection({ movie }: HeroSectionProps) {
               <Star className="w-3 h-3 mr-1 fill-current" />
               {movie.rating}
             </Badge>
-            <Badge variant="outline" className="border-gray-400 text-gray-300">
+            <Badge variant="outline" className="border-zinc-400 text-zinc-300">
               {movie.language || "English"}
             </Badge>
             {movie.year && (
               <Badge
                 variant="outline"
-                className="border-gray-400 text-gray-300"
+                className="border-zinc-400 text-zinc-300"
               >
                 {movie.year}
               </Badge>
             )}
           </div>
 
-          <p className="text-gray-300 mb-6 line-clamp-2 sm:line-clamp-3 md:line-clamp-4">
+          <p className="text-zinc-300 mb-6 line-clamp-2 sm:line-clamp-3 md:line-clamp-4">
             {movie.description_full || movie.summary}
           </p>
 

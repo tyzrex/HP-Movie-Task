@@ -26,7 +26,7 @@ export function TopNavigation() {
         <Button
           variant="ghost"
           size="icon"
-          className="text-gray-300 hover:bg-primary hover:text-white"
+          className="text-zinc-300 hover:bg-primary hover:text-white"
           onClick={() => router.back()}
         >
           <ChevronLeft className="w-5 h-5" />
@@ -34,7 +34,7 @@ export function TopNavigation() {
         <Button
           variant="ghost"
           size="icon"
-          className="text-gray-300 hover:bg-primary hover:text-white"
+          className="text-zinc-300 hover:bg-primary hover:text-white"
           onClick={() => router.forward()}
         >
           <ChevronRight className="w-5 h-5" />
@@ -44,13 +44,13 @@ export function TopNavigation() {
       {/* Search Bar */}
       <div className="flex-1 max-w-md mx-4">
         <form onSubmit={handleSearch} className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-zinc-300 w-4 h-4" />
           <Input
             type="text"
             placeholder="Search movies..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 bg-zinc-800 border-zinc-700 text-white placeholder-gray-300 focus:border-red-500"
+            className="pl-10 bg-zinc-800 border-zinc-700 text-white placeholder-zinc-300 focus:border-red-500"
           />
         </form>
       </div>
