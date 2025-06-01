@@ -1,13 +1,56 @@
 "use client";
-
 import { navigationItems } from "@/constants/nav-item";
+import { fetchMovieDetails } from "@/lib/api";
+import { getFavorites } from "@/lib/favorites";
+import { Movie } from "@/lib/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import useMedia from "use-media";
 
 export default function Sidebar() {
   const pathname = usePathname();
   const isMobile = useMedia("(max-width: 768px)");
+
+  const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadFavorites();
+
+    const handleFavoritesChange = () => {
+      loadFavorites();
+    };
+
+    window.addEventListener("favoritesChanged", handleFavoritesChange);
+    return () =>
+      window.removeEventListener("favoritesChanged", handleFavoritesChange);
+  }, []);
+
+  const loadFavorites = async () => {
+    try {
+      setLoading(true);
+      const favoriteIds = getFavorites();
+
+      if (favoriteIds.length === 0) {
+        setFavoriteMovies([]);
+        setLoading(false);
+        return;
+      }
+
+      // Fetch details for each favorite movie
+      const moviePromises = favoriteIds.map((id) =>
+        fetchMovieDetails(id).catch(() => null)
+      );
+      const movies = await Promise.all(moviePromises);
+      setFavoriteMovies(movies.filter(Boolean) as Movie[]);
+    } catch (error) {
+      console.error("Failed to load favorites:", error);
+      setFavoriteMovies([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (isMobile) {
     return null; // Mobile navigation is handled by MobileNav component
@@ -57,11 +100,43 @@ export default function Sidebar() {
           <h3 className="text-gray-400 text-xs font-medium uppercase tracking-wider mb-4">
             Recent Favorites
           </h3>
-          <div className="space-y-1 px-3 py-2 bg-zinc-700/50 rounded-lg">
-            <p className="text-gray-500 text-xs">
-              Your recently favorited movies will appear here
-            </p>
-          </div>
+          {loading ? (
+            <div className="animate-pulse space-y-4">
+              <div className="grid gap-4">
+                {Array.from({ length: 3 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="bg-zinc-700 w-full h-[100px] rounded-lg shimmer"
+                  />
+                ))}
+              </div>
+            </div>
+          ) : favoriteMovies.length > 0 ? (
+            <div className="grid gap-4">
+              {favoriteMovies.slice(0, 6).map((movie) => (
+                <Link
+                  key={movie.id}
+                  href={`/movies/${movie.id}`}
+                  className="flex min-h-[100px] bg-zinc-800 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
+                >
+                  <div className="p-2">
+                    <h4 className="text-sm text-white line-clamp-2">
+                      {movie.title}
+                    </h4>
+                    <p className="text-xs text-gray-400 mt-1">
+                      {movie.year} • {movie.rating} ★
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-1 px-3 py-2 bg-zinc-700/50 rounded-lg">
+              <p className="text-gray-500 text-xs">
+                Your recently favorited movies will appear here
+              </p>
+            </div>
+          )}
         </div>
       </nav>
     </div>
