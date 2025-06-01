@@ -12,10 +12,22 @@ export default function Home() {
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSectionWrapper />
       </Suspense>
-      <Suspense fallback={<MovieGridSkeleton title="Popular Movies" />}>
+      <Suspense
+        fallback={
+          <div className="px-4 sm:px-6 lg:px-8 py-6">
+            <MovieGridSkeleton title="Popular Movies" />
+          </div>
+        }
+      >
         <PopularMoviesWrapper />
       </Suspense>
-      <Suspense fallback={<MovieGridSkeleton title="Top Rated" />}>
+      <Suspense
+        fallback={
+          <div className="px-4 sm:px-6 lg:px-8 py-6">
+            <MovieGridSkeleton title="Top Rated" />
+          </div>
+        }
+      >
         <TopRatedMoviesWrapper />
       </Suspense>
     </>

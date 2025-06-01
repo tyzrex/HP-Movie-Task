@@ -62,12 +62,12 @@ export default function FavoritesPage() {
     return (
       <div className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="animate-pulse space-y-8">
-          <div className="h-8 bg-gray-700 rounded w-48" />
+          <div className="h-8 bg-zinc-700 rounded w-48" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
             {Array.from({ length: 10 }).map((_, i) => (
               <div
                 key={i}
-                className="aspect-[2/3] bg-gray-700 rounded-lg shimmer"
+                className="aspect-[2/3] bg-zinc-700 rounded-lg shimmer"
               />
             ))}
           </div>
@@ -83,7 +83,7 @@ export default function FavoritesPage() {
           <Link href="/">
             <Button
               variant="ghost"
-              className="mr-4 text-white hover:bg-gray-800"
+              className="mr-4 text-white hover:bg-zinc-800"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
@@ -95,7 +95,7 @@ export default function FavoritesPage() {
           </h1>
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-zinc-400">
             {favoriteMovies.length} movie
             {favoriteMovies.length !== 1 ? "s" : ""}
           </span>
@@ -115,11 +115,11 @@ export default function FavoritesPage() {
 
       {favoriteMovies.length === 0 ? (
         <div className="text-center py-20">
-          <Heart className="w-20 h-20 text-gray-600 mx-auto mb-6" />
+          <Heart className="w-20 h-20 text-zinc-600 mx-auto mb-6" />
           <h2 className="text-2xl font-semibold text-white mb-4">
             Your favorites list is empty
           </h2>
-          <p className="text-gray-400 mb-8 max-w-md mx-auto">
+          <p className="text-zinc-400 mb-8 max-w-md mx-auto">
             Start adding movies to your favorites to keep track of what you want
             to watch
           </p>

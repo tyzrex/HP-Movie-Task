@@ -20,9 +20,7 @@ export async function fetchMovies(params: FetchMoviesParams = {}) {
     }
   });
 
-  const response = await fetch(`${BASE_URL}/list_movies.json?${searchParams}`, {
-    next: { revalidate: 300 },
-  });
+  const response = await fetch(`${BASE_URL}/list_movies.json?${searchParams}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch movies");
