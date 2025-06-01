@@ -3,7 +3,6 @@ import { MovieGrid } from "@/components/movie-grid";
 import { HeroSkeleton } from "@/components/skeletons/hero-skeleton";
 import { MovieGridSkeleton } from "@/components/skeletons/movie-grid-skeleton";
 import { fetchFeaturedMovie, fetchMoviesByGenres } from "@/lib/api";
-import Image from "next/image";
 import { Suspense } from "react";
 
 export default function Home() {

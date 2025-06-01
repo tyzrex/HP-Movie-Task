@@ -120,7 +120,6 @@ export async function fetchGenres() {
 
 export async function fetchSimilarMovies(movieId: number) {
   try {
-    // Get movie details first to find genres
     const movie = await fetchMovieDetails(movieId);
     const primaryGenre = movie.genres?.[0];
 
@@ -136,7 +135,7 @@ export async function fetchSimilarMovies(movieId: number) {
       minimum_rating: 6,
     });
 
-    // Filter out the current movie
+    //eslint-disable-next-line @typescript-eslint/no-explicit-any
     return data.movies?.filter((m: any) => m.id !== movieId) || [];
   } catch (error) {
     console.error("Failed to fetch similar movies:", error);
